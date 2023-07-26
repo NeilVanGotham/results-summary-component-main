@@ -1,0 +1,279 @@
+/* Attribution */
+.attribution {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Font */
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("../fonts/HankenGrotesk-VariableFont_wght.ttf");
+  font-weight: 100 900;
+}
+
+/* Variables */
+:root {
+  /* Colors */
+  --clr-hsl-accent1: 0, 100%, 67%;
+  --clr-hsl-accent2: 39, 100%, 56%;
+  --clr-hsl-accent3: 166, 100%, 37%;
+  --clr-hsl-accent4: 234, 85%, 45%;
+
+  --clr-accent1: hsl(var(--clr-hsl-accent1), 1);
+  --clr-accent2: hsl(var(--clr-hsl-accent2), 1);
+  --clr-accent3: hsl(var(--clr-hsl-accent3), 1);
+  --clr-accent4: hsl(var(--clr-hsl-accent4), 1);
+
+  --clr-hsl-neutral-100: 0, 0%, 100%;
+  --clr-hsl-neutral-200: 221, 100%, 96%;
+  --clr-hsl-neutral-300: 241, 100%, 89%;
+  --clr-hsl-neutral-900: 224, 30%, 27%;
+
+  --clr-neutral-100: hsl(var(--clr-hsl-neutral-100), 1);
+  --clr-neutral-200: hsl(var(--clr-hsl-neutral-200), 1);
+  --clr-neutral-300: hsl(var(--clr-hsl-neutral-300), 1);
+  --clr-neutral-900: hsl(var(--clr-hsl-neutral-900), 1);
+
+  /* Gradients */
+  --clr-primary-background1: hsl(252, 100%, 67%);
+  --clr-primary-background2: hsl(241, 81%, 54%);
+  --grd-primary-background: linear-gradient(
+    var(--clr-primary-background1),
+    var(--clr-primary-background2)
+  );
+
+  --clr-secondary-background1: hsla(256, 72%, 46%, 1);
+  --clr-secondary-background2: hsla(241, 72%, 46%, 0);
+  --grd-secondary-background: linear-gradient(
+    var(--clr-secondary-background1),
+    var(--clr-secondary-background2)
+  );
+
+  /* Font Family */
+  --ff-primary: "Hanken Grotesk", sans-serif;
+  --fs-primary: 1rem;
+  --fw-regular: 500;
+  --fw-bold: 700;
+  --fw-black: 900;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-primary);
+  font-weight: var(--fw-regular);
+  background-color: var(--clr-neutral-100);
+}
+
+/* Results side */
+.results {
+  align-items: center;
+  background: var(--grd-primary-background);
+  border-radius: 0 0 2rem 2rem;
+  color: var(--clr-neutral-300);
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  padding: 1rem 2rem 1.5rem;
+
+  & p {
+    text-align: center;
+  }
+}
+
+h1 {
+  color: var(--clr-neutral-300);
+  font-size: 1.125rem;
+}
+
+.results__score {
+  display: grid;
+  place-content: center;
+  color: var(--clr-neutral-300);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 9rem;
+  margin-inline: auto;
+  background: var(--grd-secondary-background);
+
+  & span {
+    font-size: 3.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-100);
+  }
+}
+
+.results__comment {
+  & p:first-child {
+    color: var(--clr-neutral-100);
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+  }
+
+  & p {
+    margin: 0.5rem;
+  }
+}
+
+/* Summary */
+.summary {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  & .overview {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  & div[data-accent] {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  & .label {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-weight: var(--fw-bold);
+  }
+
+  & .score {
+    color: hsl(var(--clr-hsl-neutral-900), 0.5);
+    font-weight: var(--fw-bold);
+
+    & strong {
+      font-weight: var(--fw-black);
+      color: hsl(var(--clr-hsl-neutral-900), 1);
+    }
+  }
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: var(--clr-neutral-900);
+}
+
+div[data-accent="accent1"] {
+  background-color: hsl(var(--clr-hsl-accent1), 0.1);
+  color: var(--clr-accent1);
+}
+
+div[data-accent="accent2"] {
+  background-color: hsl(var(--clr-hsl-accent2), 0.1);
+  color: var(--clr-accent2);
+}
+
+div[data-accent="accent3"] {
+  background-color: hsl(var(--clr-hsl-accent3), 0.1);
+  color: var(--clr-accent3);
+}
+
+div[data-accent="accent4"] {
+  background-color: hsl(var(--clr-hsl-accent4), 0.1);
+  color: var(--clr-accent4);
+}
+
+button {
+  border: none;
+  border-radius: 2rem;
+  height: 3rem;
+  background-color: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+  cursor: pointer;
+
+  &:focus-visible, &:hover {
+    background-image: var(--grd-primary-background);
+  }
+}
+
+@media screen and (min-width: 652px) {
+  body {
+    display: grid;
+    place-content: center;
+    min-height: 100svh;
+  }
+
+  article {
+    max-width: 600px;
+    border-radius: 2rem;
+    box-shadow: 10px 18px 27px 2px hsl(var(--clr-hsl-neutral-900), 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .results {
+    border-radius: 2rem;
+    padding: 2rem;
+  }
+
+  .results__score {
+    width: 12rem;
+  }
+}
